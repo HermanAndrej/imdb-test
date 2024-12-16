@@ -55,6 +55,22 @@ public class HomePage extends BasePage {
     ////*[@id="nav-search-form"]/div[1]/div
     ////*[@id="nav-search-form"]/div[1]/div
 
+    public WebElement getNavBarLogo() {
+        return navBarLogo;
+    }
+
+    public WebElement getNavBarIMDBProIcon() {
+        return navBarIMDBProIcon;
+    }
+
+    public WebElement getNavBarWatchlistButton() {
+        return navBarWatchlistButton;
+    }
+
+    public WebElement getNavBarSignInButton() {
+        return navBarSignInButton;
+    }
+
     public void searchForText(String query) {
         navBarSearch.sendKeys(query); // Enter search text
         navBarSearchFindButton.click(); // Click search button
