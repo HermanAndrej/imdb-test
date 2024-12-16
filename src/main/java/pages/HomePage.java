@@ -20,7 +20,7 @@ public class HomePage extends BasePage {
     private WebElement navBarSearchFilter;
 
 
-    @FindBy(xpath = "//*[@id=\"imdbHeader\"]/div[2]/aside[1]")
+    @FindBy(css = ".gUPgwv.drawer")
     private WebElement navBarMenuShown;
 
     @FindBy(id = "suggestion-search") //??? couldn't click
@@ -49,7 +49,7 @@ public class HomePage extends BasePage {
 
     // when not visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-exit-done
     // when visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--open ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-enter-done
-    @FindBy(css = "div.sc-jQAyio.sc-csTbTw.dUVOWS.cXNOwG.navbar__flyout--breakpoint-m > div")
+    @FindBy(id = "nav-language-selector-contents")
     private WebElement navBarLanguageMenu;
 
     ////*[@id="nav-search-form"]/div[1]/div
@@ -69,6 +69,22 @@ public class HomePage extends BasePage {
 
     public WebElement getNavBarSignInButton() {
         return navBarSignInButton;
+    }
+
+    public WebElement getNavBarMenu() {
+        return navBarMenu;
+    }
+
+    public WebElement getNavBarMenuShown() {
+        return navBarMenuShown;
+    }
+
+    public WebElement getNavBarLanguageSelectorButton() {
+        return navBarLanguageSelectorButton;
+    }
+
+    public WebElement getNavBarLanguageMenu() {
+        return navBarLanguageMenu;
     }
 
     public void searchForText(String query) {

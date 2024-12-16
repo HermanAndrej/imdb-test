@@ -22,9 +22,9 @@ public class SearchTest extends BaseTest {
         homePage.searchForText("parasite");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement firstResult = wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
+        WebElement titleSection = wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
 
-        Assertions.assertTrue(firstResult.getText().contains("Parasite"), "Search result does not include 'Parasite'");
+        Assertions.assertTrue(titleSection.getText().contains("Parasite"), "Search result does not include 'Parasite'");
     }
 
     @Test

@@ -2,8 +2,16 @@ package tests.guestuser;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.FindPage;
 import pages.HomePage;
 import tests.BaseTest;
+
+import java.time.Duration;
 
 public class NavBarTest extends BaseTest {
 
@@ -43,5 +51,47 @@ public class NavBarTest extends BaseTest {
         homePage.getNavBarSignInButton().click();
 
         Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Invalid");
+    }
+
+    @Test
+    public void menuShownTest() {
+        HomePage homePage = new HomePage(driver);
+
+        homePage.getNavBarMenu().click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement navBarMenu = wait.until(ExpectedConditions.visibilityOf(homePage.getNavBarMenuShown()));
+
+        Assertions.assertTrue(navBarMenu.isDisplayed(), "Menu not shown!");
+    }
+
+    @Test
+    public void languageMenuShownTest() {
+        HomePage homePage = new HomePage(driver);
+
+        homePage.getNavBarLanguageSelectorButton().click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement navBarLanguageMenu = wait.until(ExpectedConditions.visibilityOf(homePage.getNavBarLanguageMenu()));
+
+        Assertions.assertTrue(navBarLanguageMenu.isDisplayed(), "Language menu not shown!");
+    }
+
+    @Test
+    public void findPageToHomePageTest() {
+        HomePage homePage = new HomePage(driver);
+        FindPage findPage = new FindPage(driver);
+
+        homePage.searchForText("parasite");
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
+
+        homePage.getNavBarLogo().click();
+
+        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait2.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+
+        Assertions.assertEquals("https://www.imdb.com/?ref_=nv_home", driver.getCurrentUrl(), "Navigation from find page to home page through imdb logo icon is not correct!");
     }
 }
