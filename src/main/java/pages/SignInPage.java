@@ -24,6 +24,13 @@ public class SignInPage extends BasePage {
     @FindBy(id = "auth-error-message-box")
     private WebElement authErrorMsgBox;
 
+
+    @FindBy(css = "#auth-show-password-checkbox")
+    private WebElement showPasswordBox;
+
+    @FindBy(css = "#auth-password-container > div > span")
+    private WebElement visiblePasswordContainer;
+
     public void signIn(String email, String password) {
         HomePage homePage = new HomePage(driver);
 
@@ -36,5 +43,21 @@ public class SignInPage extends BasePage {
 
     public WebElement getAuthErrorMsgBox() {
         return authErrorMsgBox;
+    }
+
+    public WebElement getShowPasswordBox() {
+        return showPasswordBox;
+    }
+
+    public WebElement getVisiblePasswordContainer() {
+        return visiblePasswordContainer;
+    }
+
+    public WebElement getPasswordField() {
+        return passwordField;
+    }
+
+    public WebElement getSignInWithImdb() {
+        return signInWithImdb;
     }
 }

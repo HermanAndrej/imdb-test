@@ -1,8 +1,13 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
@@ -47,13 +52,25 @@ public class HomePage extends BasePage {
     @FindBy(id = "language-option-de-DE")
     private WebElement languageSelectorGerman;
 
+    @FindBy(id = "language-option-it-IT")
+    private WebElement languageSelectorItalian;
+
     // when not visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-exit-done
     // when visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--open ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-enter-done
     @FindBy(id = "nav-language-selector-contents")
     private WebElement navBarLanguageMenu;
 
-    ////*[@id="nav-search-form"]/div[1]/div
-    ////*[@id="nav-search-form"]/div[1]/div
+    // Shown only if user is logged in
+    @FindBy(css = ".navbar__user-menu-toggle__button")
+    private WebElement navBarProfileIcon;
+
+    // Shown only if user is logged in
+    @FindBy(id = "navUserMenu-contents")
+    private WebElement navBarProfileMenu;
+
+    // Shown only if user is logged in
+    @FindBy(xpath = "//label[text()='Your profile']")
+    private WebElement navBarProfileMenuProfile;
 
     public WebElement getNavBarLogo() {
         return navBarLogo;
@@ -87,8 +104,42 @@ public class HomePage extends BasePage {
         return navBarLanguageMenu;
     }
 
+    public WebElement getNavBarProfileIcon() {
+        return navBarProfileIcon;
+    }
+
+    public WebElement getNavBarProfileMenu() {
+        return navBarProfileMenu;
+    }
+
+    public WebElement getNavBarProfileMenuProfile() {
+        return navBarProfileMenuProfile;
+    }
+
     public void searchForText(String query) {
         navBarSearch.sendKeys(query); // Enter search text
         navBarSearchFindButton.click(); // Click search button
+    }
+
+    public void switchLanguage(String language) {
+        navBarLanguageSelectorButton.click();
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        //wait.until(ExpectedConditions.visibilityOf(navBarLanguageMenu));
+
+        switch(language) {
+            case "English":
+                js.executeScript("arguments[0].click();", languageSelectorEnglish);
+                break;
+            case "German":
+                js.executeScript("arguments[0].click();", languageSelectorGerman);
+                break;
+            case "Italian":
+                js.executeScript("arguments[0].click();", languageSelectorItalian);
+                break;
+            default:
+                System.out.println("Choose between English, German and Italian!");
+        }
     }
 }

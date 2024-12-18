@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 import utils.DriverManager;
 
 import static utils.Config.BASE_URL;
-import static utils.Config.EMAIL;
-import static utils.Config.PASSWORD;
 
 public class BaseTest {
     protected WebDriver driver;

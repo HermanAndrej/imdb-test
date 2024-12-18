@@ -18,6 +18,9 @@ public class FindPage extends BasePage {
     @FindBy(css = "[data-testid='find-results-section-interest']")
     private WebElement interestSection;
 
+    @FindBy(css = "div.sc-b03627f1-2.gWHDBT > ul > li:nth-child(1)")
+    private WebElement titleSectionFirstMatch;
+
     public WebElement getInterestSection() {
         return interestSection;
     }
@@ -28,5 +31,11 @@ public class FindPage extends BasePage {
 
     public WebElement getTitleSection() {
         return titleSection;
+    }
+
+    public void FindTitle(String titleName) {
+        HomePage homePage = new HomePage(driver);
+        homePage.searchForText(titleName);
+        titleSectionFirstMatch.click();
     }
 }

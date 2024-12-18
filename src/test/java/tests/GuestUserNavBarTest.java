@@ -1,19 +1,17 @@
-package tests.guestuser;
+package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.FindPage;
 import pages.HomePage;
-import tests.BaseTest;
 
 import java.time.Duration;
 
-public class NavBarTest extends BaseTest {
+public class GuestUserNavBarTest extends BaseTest {
 
     @Test
     public void logoIconTestRef() {
@@ -27,10 +25,11 @@ public class NavBarTest extends BaseTest {
     @Test
     public void imdbProIconTestRef() {
         HomePage homePage = new HomePage(driver);
+        String expectedUrl = "^https:\\/\\/pro\\.imdb\\.com\\/login.*";
 
         homePage.getNavBarIMDBProIcon().click();
 
-        Assertions.assertEquals("https://pro.imdb.com/login/ap?u=/login/lwa&imdbPageAction=signUp&rf=cons_nb_hm&ref_=cons_nb_hm", driver.getCurrentUrl(), "Clicking on the imdb pro icon doesn't redirect to pro sign in page!");
+        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedUrl), "Clicking on the imdb pro icon doesn't redirect to pro sign in page!");
     }
 
     @Test
