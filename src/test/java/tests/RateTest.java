@@ -1,6 +1,7 @@
 package tests;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
@@ -9,6 +10,7 @@ import pages.FindPage;
 import pages.SignInPage;
 import pages.TitlePage;
 
+import java.io.File;
 import java.time.Duration;
 
 import utils.Config;
@@ -27,16 +29,20 @@ public class RateTest extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/registration/signin"));
     }
 
     @Test
     public void registeredUserRateTest() {
-        SignInPage signInPage = new SignInPage(driver);
+        signInOrLoadCookies();
         FindPage findPage = new FindPage(driver);
         TitlePage titlePage = new TitlePage(driver);
-
-        signInPage.signIn(Config.EMAIL, Config.PASSWORD);
 
         findPage.FindTitle("Reservoir Dogs");
 
@@ -48,17 +54,15 @@ public class RateTest extends BaseTest {
             e.printStackTrace();
         }
 
-        System.out.println(titlePage.getTitleRating());
-        Assertions.assertTrue(titlePage.getTitleUserRating().contains("9/10"));
+        Assertions.assertTrue(titlePage.getTitleUserRating().contains("9\n" + "/10"));
     }
 
     @Test
     public void removeRatingTest() {
-        SignInPage signInPage = new SignInPage(driver);
+        signInOrLoadCookies();
         FindPage findPage = new FindPage(driver);
         TitlePage titlePage = new TitlePage(driver);
 
-        signInPage.signIn(Config.EMAIL, Config.PASSWORD);
 
         findPage.FindTitle("Reservoir Dogs");
 

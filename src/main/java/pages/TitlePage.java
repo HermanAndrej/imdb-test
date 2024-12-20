@@ -122,6 +122,18 @@ public class TitlePage extends BasePage {
     }
 
     public void addTitleToWatchList() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", addTitleToWatchlist);
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(addTitleToWatchlist));
+
         addTitleToWatchlist.click();
     }
 }

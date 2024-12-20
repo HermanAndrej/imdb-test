@@ -16,18 +16,24 @@ public class WatchlistPage extends BasePage {
     @FindBy(css = "[data-testid = 'list-page-atf-add-to-list-btn']")
     private WebElement createNewListButton;
 
-    @FindBy(id = "text-input__8184")
+    @FindBy(css = "[data-testid = 'input-list-name']")
     private WebElement enterListNameField;
 
-    @FindBy(id = "textarea__4")
+    @FindBy(css = "[data-testid = 'input-list-description']")
     private WebElement enterListDescriptionField;
 
     @FindBy(css = "[data-testid = 'list-create-button']")
     private WebElement createListButton;
 
-    @FindBy(css = "[data-testid ='list-page-mc-list-content']")
+    @FindBy(css = "div.ipc-title.ipc-title--base.ipc-title--title.ipc-title-link-no-icon.ipc-title--on-textPrimary.sc-a69a4297-2.bqNXEn.dli-title.with-margin > a > h3")
     private WebElement watchlistTitle;
 
+    @FindBy(css = "div.sc-65d2a03-1.hLElui.ipc-page-grid__item.ipc-page-grid__item--span-2")
+    private WebElement watchlistBody;
+
+    public WebElement getWatchlistTitle() {
+        return watchlistTitle;
+    }
 
     public void createNewList(String listName, String listDescription) {
         createNewListButton.click();
@@ -45,9 +51,24 @@ public class WatchlistPage extends BasePage {
         }
 
         createListButton.click();
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public WebElement getWatchlistBody() {
+        return watchlistBody;
     }
 
     public String getWatchlistTitleText() {
         return watchlistTitle.getText();
     }
+
+    public String getWatchlistBodyText() {
+        return watchlistBody.getText();
+    }
+
 }

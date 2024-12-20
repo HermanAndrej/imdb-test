@@ -12,14 +12,14 @@ import pages.HomePage;
 import pages.SignInPage;
 import utils.Config;
 
+import java.io.File;
 import java.time.Duration;
 
 public class RegisteredUserNavBarTest extends BaseTest {
 
     @BeforeEach
-    public void loginUser() {
-        SignInPage signInPage = new SignInPage(driver);
-        signInPage.signIn(Config.EMAIL, Config.PASSWORD);
+    public void callSignInOrLoadCookies() {
+        signInOrLoadCookies();
     }
 
     @Test
@@ -63,6 +63,11 @@ public class RegisteredUserNavBarTest extends BaseTest {
 
         Assertions.assertTrue(navBarProfileMenu.isDisplayed(), "Nav bar profile menu not displayed if profile icon is clicked!");
 
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         homePage.getNavBarProfileMenuProfile().click();
 
         Assertions.assertTrue(driver.getCurrentUrl().matches(expectedUrl), "Not navigated to user profile!");

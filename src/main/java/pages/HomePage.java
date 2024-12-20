@@ -69,7 +69,7 @@ public class HomePage extends BasePage {
     private WebElement navBarProfileMenu;
 
     // Shown only if user is logged in
-    @FindBy(xpath = "//label[text()='Your profile']")
+    @FindBy(css = "#navUserMenu-contents > ul > a:nth-child(3)")
     private WebElement navBarProfileMenuProfile;
 
     public WebElement getNavBarLogo() {
