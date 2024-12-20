@@ -24,7 +24,6 @@ public class HomePage extends BasePage {
     @FindBy(css = ".ipc-btn--core-base")
     private WebElement navBarSearchFilter;
 
-
     @FindBy(css = ".gUPgwv.drawer")
     private WebElement navBarMenuShown;
 
@@ -72,8 +71,18 @@ public class HomePage extends BasePage {
     @FindBy(css = "#navUserMenu-contents > ul > a:nth-child(3)")
     private WebElement navBarProfileMenuProfile;
 
+    @FindBy(css = "div.ipc-shoveler.ipc-shoveler--base.ipc-shoveler--page0.rvi-shoveler")
+    private WebElement recentlyViewedSection;
+
+    @FindBy(css = "div.ipc-title.ipc-title--baseAlt.ipc-title--subsection-title.ipc-title--on-textPrimary.sc-10b3b195-0.cxKMzQ > div > div > button")
+    private WebElement clearRecentlyViewed;
+
     public WebElement getNavBarLogo() {
         return navBarLogo;
+    }
+
+    public WebElement getClearRecentlyViewed() {
+        return clearRecentlyViewed;
     }
 
     public WebElement getNavBarIMDBProIcon() {
@@ -116,9 +125,24 @@ public class HomePage extends BasePage {
         return navBarProfileMenuProfile;
     }
 
+    public WebElement getRecentlyViewedSection() {
+        return recentlyViewedSection;
+    }
+
     public void searchForText(String query) {
-        navBarSearch.sendKeys(query); // Enter search text
-        navBarSearchFindButton.click(); // Click search button
+        navBarSearch.sendKeys(query);
+        navBarSearchFindButton.click();
+    }
+
+    public void goToRecentlyViewedSection() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", recentlyViewedSection);
+
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public void switchLanguage(String language) {

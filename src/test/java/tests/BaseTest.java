@@ -32,9 +32,9 @@ public class BaseTest {
     void loadCookies() {
         try (FileInputStream fileIn = new FileInputStream("cookies.pkl");
              ObjectInputStream in = new ObjectInputStream(fileIn)) {
-            Set<Cookie> cookies = (Set<Cookie>) in.readObject(); // Load cookies
+            Set<Cookie> cookies = (Set<Cookie>) in.readObject();
             for (Cookie cookie : cookies) {
-                driver.manage().addCookie(cookie); // Add each cookie to the WebDriver
+                driver.manage().addCookie(cookie);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -54,10 +54,10 @@ public class BaseTest {
     }
 
     void saveCookies() {
-        Set<Cookie> cookies = driver.manage().getCookies(); // Get all cookies
+        Set<Cookie> cookies = driver.manage().getCookies();
         try (FileOutputStream fileOut = new FileOutputStream("cookies.pkl");
              ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-            out.writeObject(cookies);  // Save cookies
+            out.writeObject(cookies);
         } catch (Exception e) {
             e.printStackTrace();
         }
