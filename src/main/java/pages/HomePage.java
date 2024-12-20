@@ -76,6 +76,13 @@ public class HomePage extends BasePage {
     @FindBy(css = "div.ipc-title.ipc-title--baseAlt.ipc-title--subsection-title.ipc-title--on-textPrimary.sc-10b3b195-0.cxKMzQ > div > div > button")
     private WebElement clearRecentlyViewed;
 
+    @FindBy(id = "captcha-container")
+    private WebElement captchaContainer;
+
+    public WebElement getCaptchaContainer() {
+        return captchaContainer;
+    }
+
     public WebElement getNavBarLogo() {
         return navBarLogo;
     }
