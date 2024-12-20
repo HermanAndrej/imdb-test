@@ -4,15 +4,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
-import pages.HomePage;
 import pages.SignInPage;
 import utils.Config;
 import utils.DriverManager;
 
 import java.io.*;
 import java.util.Set;
-
-import static utils.Config.BASE_URL;
 
 public class BaseTest {
     protected WebDriver driver;

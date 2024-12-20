@@ -4,7 +4,6 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
@@ -83,6 +82,10 @@ public class HomePage extends BasePage {
 
     public WebElement getClearRecentlyViewed() {
         return clearRecentlyViewed;
+    }
+
+    public WebElement getNavBarSearch() {
+        return navBarSearch;
     }
 
     public WebElement getNavBarIMDBProIcon() {
