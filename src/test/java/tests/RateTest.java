@@ -63,7 +63,6 @@ public class RateTest extends BaseTest {
         FindPage findPage = new FindPage(driver);
         TitlePage titlePage = new TitlePage(driver);
 
-
         findPage.FindTitle("Reservoir Dogs");
 
         titlePage.removeTitleRating();

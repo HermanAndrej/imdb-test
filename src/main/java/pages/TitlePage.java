@@ -98,32 +98,23 @@ public class TitlePage extends BasePage {
 
     public void removeTitleRating() {
         rateButton.click();
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(removeRatingButton));
-
         removeRatingButton.click();
     }
 
     public void getCastSectionActor() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", castSectionActor);
+        scrollToElement(castSectionActor);
 
         try {
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(castSectionActor));
 
         castSectionActor.click();
     }
 
     public void addTitleToWatchList() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", addTitleToWatchlist);
+        scrollToElement(addTitleToWatchlist);
 
         try {
             Thread.sleep(500);
@@ -131,8 +122,7 @@ public class TitlePage extends BasePage {
             e.printStackTrace();
         }
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(addTitleToWatchlist));
+        //waitForClickability(addTitleToWatchlist);
 
         addTitleToWatchlist.click();
     }

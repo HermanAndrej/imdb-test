@@ -155,8 +155,7 @@ public class HomePage extends BasePage {
     }
 
     public void goToRecentlyViewedSection() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].scrollIntoView(true);", recentlyViewedSection);
+        scrollToElement(recentlyViewedSection);
 
         try {
             Thread.sleep(500);
@@ -168,9 +167,6 @@ public class HomePage extends BasePage {
     public void switchLanguage(String language) {
         navBarLanguageSelectorButton.click();
         JavascriptExecutor js = (JavascriptExecutor) driver;
-
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        //wait.until(ExpectedConditions.visibilityOf(navBarLanguageMenu));
 
         switch(language) {
             case "English":

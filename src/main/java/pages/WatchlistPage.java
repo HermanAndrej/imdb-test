@@ -38,9 +38,6 @@ public class WatchlistPage extends BasePage {
     public void createNewList(String listName, String listDescription) {
         createNewListButton.click();
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
-
         enterListNameField.sendKeys(listName);
         enterListDescriptionField.sendKeys(listDescription);
 
