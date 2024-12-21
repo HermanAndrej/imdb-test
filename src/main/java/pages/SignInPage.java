@@ -31,6 +31,24 @@ public class SignInPage extends BasePage {
     @FindBy(css = "#auth-password-container > div > span")
     private WebElement visiblePasswordContainer;
 
+    @FindBy(css = "#signin-options > div > div:nth-child(4) > a")
+    private WebElement createNewAccountButton;
+
+    @FindBy(id = "ap_customer_name")
+    private WebElement signUpNameField;
+
+    @FindBy(id = "ap_password_check")
+    private WebElement reenterPasswordField;
+
+    @FindBy(id = "continue")
+    private WebElement signUpContinueButton;
+
+    @FindBy(id = "auth-email-invalid-email-alert")
+    private WebElement invalidEmailInput;
+
+    @FindBy(id = "auth-password-invalid-password-alert")
+    private WebElement invalidPasswordInput;
+
     public void signIn(String email, String password) {
         HomePage homePage = new HomePage(driver);
 
@@ -40,6 +58,23 @@ public class SignInPage extends BasePage {
         passwordField.sendKeys(password);
         signInSubmit.click();
     }
+
+    public void signUpEnterName(String name) {
+        signUpNameField.sendKeys(name);
+    }
+
+    public void enterEmail(String email) {
+        emailField.sendKeys(email);
+    }
+
+    public void enterPassword(String password) {
+        passwordField.sendKeys(password);
+    }
+
+    public void reenterPassword(String password) {
+        reenterPasswordField.sendKeys(password);
+    }
+
 
     public WebElement getAuthErrorMsgBox() {
         return authErrorMsgBox;
@@ -59,5 +94,21 @@ public class SignInPage extends BasePage {
 
     public WebElement getSignInWithImdb() {
         return signInWithImdb;
+    }
+
+    public WebElement getCreateNewAccountButton() {
+        return createNewAccountButton;
+    }
+
+    public WebElement getSignUpContinueButton() {
+        return signUpContinueButton;
+    }
+
+    public WebElement getInvalidEmailInput() {
+        return invalidEmailInput;
+    }
+
+    public WebElement getInvalidPasswordInput() {
+        return invalidPasswordInput;
     }
 }

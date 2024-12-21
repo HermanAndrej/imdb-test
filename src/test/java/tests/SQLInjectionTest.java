@@ -8,14 +8,14 @@ import pages.SignInPage;
 public class SQLInjectionTest extends BaseTest {
 
     @Test
-    public void loginSQLInjectionTest() {
+    public void signInSQLInjectionTest() {
         SignInPage signInPage = new SignInPage(driver);
 
         String injectionString = "admin' OR '1'='1' --";
 
         signInPage.signIn(injectionString, injectionString);
 
-        Assertions.assertNotEquals("https://www.imdb.com/?ref_=login", driver.getCurrentUrl(), "Login was successful!");
+        Assertions.assertNotEquals("https://www.imdb.com/?ref_=login", driver.getCurrentUrl(), "Sign in was successful!");
     }
 
     @Test

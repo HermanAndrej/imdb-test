@@ -18,6 +18,9 @@ public class FindPage extends BasePage {
     @FindBy(css = "[data-testid='find-results-section-interest']")
     private WebElement interestSection;
 
+    @FindBy(css = "[data-testid='find-results-section-name']")
+    private WebElement peopleSection;
+
     @FindBy(css = "div.sc-b03627f1-2.gWHDBT > ul > li:nth-child(1)")
     private WebElement titleSectionFirstMatch;
 
@@ -31,6 +34,10 @@ public class FindPage extends BasePage {
 
     public WebElement getTitleSection() {
         return titleSection;
+    }
+
+    public WebElement getPeopleSection() {
+        return peopleSection;
     }
 
     public void FindTitle(String titleName) {

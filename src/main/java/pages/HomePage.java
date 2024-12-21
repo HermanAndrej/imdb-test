@@ -23,6 +23,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".ipc-btn--core-base")
     private WebElement navBarSearchFilter;
 
+    @FindBy(css = "#nav-search-form > div:nth-child(1) > div > div > div > div > ul > li:nth-child(2)")
+    private WebElement navBarSearchTitleFilter;
+
     @FindBy(css = ".gUPgwv.drawer")
     private WebElement navBarMenuShown;
 
@@ -141,6 +144,13 @@ public class HomePage extends BasePage {
 
     public void searchForText(String query) {
         navBarSearch.sendKeys(query);
+        navBarSearchFindButton.click();
+    }
+
+    public void searchForTextTitleFilter(String query) {
+        navBarSearch.sendKeys(query);
+        navBarSearchFilter.click();
+        navBarSearchTitleFilter.click();
         navBarSearchFindButton.click();
     }
 
