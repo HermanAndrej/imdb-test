@@ -24,7 +24,6 @@ public class SignInPage extends BasePage {
     @FindBy(id = "auth-error-message-box")
     private WebElement authErrorMsgBox;
 
-
     @FindBy(css = "#auth-show-password-checkbox")
     private WebElement showPasswordBox;
 
@@ -74,7 +73,6 @@ public class SignInPage extends BasePage {
     public void reenterPassword(String password) {
         reenterPasswordField.sendKeys(password);
     }
-
 
     public WebElement getAuthErrorMsgBox() {
         return authErrorMsgBox;

@@ -4,16 +4,12 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
-    // Navbar elements
     @FindBy(id = "home_img_holder")
     private WebElement navBarLogo;
 
@@ -29,7 +25,7 @@ public class HomePage extends BasePage {
     @FindBy(css = ".gUPgwv.drawer")
     private WebElement navBarMenuShown;
 
-    @FindBy(id = "suggestion-search") //??? couldn't click
+    @FindBy(id = "suggestion-search")
     private WebElement navBarSearch;
 
     @FindBy(css = "#suggestion-search-button")
@@ -56,8 +52,6 @@ public class HomePage extends BasePage {
     @FindBy(id = "language-option-it-IT")
     private WebElement languageSelectorItalian;
 
-    // when not visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-exit-done
-    // when visible class = ipc-menu mdc-menu ipc-menu--not-initialized ipc-menu--on-baseAlt ipc-menu--anchored ipc-menu--open ipc-menu--with-checkbox ipc-menu--expand-from-top-right navbar__flyout--menu ipc-menu--anim-enter-done
     @FindBy(id = "nav-language-selector-contents")
     private WebElement navBarLanguageMenu;
 
