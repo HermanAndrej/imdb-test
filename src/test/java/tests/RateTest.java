@@ -29,11 +29,7 @@ public class RateTest extends BaseTest {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/registration/signin"));
     }
@@ -48,11 +44,7 @@ public class RateTest extends BaseTest {
 
         titlePage.rateTitle();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertTrue(titlePage.getTitleUserRating().contains("9\n" + "/10"));
     }
@@ -67,11 +59,7 @@ public class RateTest extends BaseTest {
 
         titlePage.removeTitleRating();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertThrows(NoSuchElementException.class, () -> {titlePage.getTitleUserRatingElement().isDisplayed();});
     }

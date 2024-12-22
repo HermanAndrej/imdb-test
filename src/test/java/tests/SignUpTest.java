@@ -31,10 +31,6 @@ public class SignUpTest extends BaseTest {
 
         signInPage.signUp("Toge Inumaki", "realemail@gmail.com", "BonitoFlakes123");
 
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(1000);
     }
 }

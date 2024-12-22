@@ -20,27 +20,15 @@ public class RecentlyViewedTest extends BaseTest {
 
         findPage.FindTitle("Breaking Bad");
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         driver.navigate().to("https://www.imdb.com");
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         homePage.goToRecentlyViewedSection();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertTrue(homePage.getRecentlyViewedSection().getText().contains("Breaking Bad"));
     }
@@ -52,46 +40,26 @@ public class RecentlyViewedTest extends BaseTest {
 
         findPage.FindTitle("Abbas Kiarostami");
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         driver.navigate().to("https://www.imdb.com");
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         homePage.goToRecentlyViewedSection();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(homePage.getClearRecentlyViewed()));
 
         homePage.goToRecentlyViewedSection();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         ((JavascriptExecutor) driver).executeScript("arguments[0].click();", homePage.getClearRecentlyViewed());
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertThrows(NoSuchElementException.class, () -> {homePage.getRecentlyViewedSection().isDisplayed();});
     }

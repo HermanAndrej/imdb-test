@@ -37,19 +37,11 @@ public class WatchlistPage extends BasePage {
         enterListNameField.sendKeys(listName);
         enterListDescriptionField.sendKeys(listDescription);
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         createListButton.click();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
     }
 
     public WebElement getWatchlistBody() {

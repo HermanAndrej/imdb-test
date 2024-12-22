@@ -28,27 +28,15 @@ public class WatchlistTest extends BaseTest{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         titlePage.addTitleToWatchList();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         driver.navigate().to("https://www.imdb.com/list/watchlist");
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         Assertions.assertTrue(watchlistPage.getWatchlistTitleText().contains("Django Unchained"));
     }
@@ -64,19 +52,11 @@ public class WatchlistTest extends BaseTest{
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         titlePage.addTitleToWatchList();
 
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(2000);
 
         driver.navigate().to("https://www.imdb.com/list/watchlist");
 

@@ -151,11 +151,7 @@ public class HomePage extends BasePage {
     public void goToRecentlyViewedSection() {
         scrollToElement(recentlyViewedSection);
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(500);
     }
 
     public void switchLanguage(String language) {

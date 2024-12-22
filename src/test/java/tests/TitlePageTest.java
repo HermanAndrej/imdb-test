@@ -55,8 +55,7 @@ public class TitlePageTest extends BaseTest {
 
         titlePage.getCastSectionActor();
 
-        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait2.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
         Assertions.assertEquals("https://www.imdb.com/name/nm0517820/?ref_=tt_cst_t_1", driver.getCurrentUrl(), "Not redirected to actor page!");
     }

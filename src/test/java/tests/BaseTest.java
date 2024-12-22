@@ -59,4 +59,13 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
+    protected void implicitWait(int ms) {
+        try {
+            Thread.sleep(ms);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+            System.err.println("Sleep interrupted: " + e.getMessage());
+        }
+    }
 }

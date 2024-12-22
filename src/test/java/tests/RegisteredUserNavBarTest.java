@@ -63,11 +63,8 @@ public class RegisteredUserNavBarTest extends BaseTest {
 
         Assertions.assertTrue(navBarProfileMenu.isDisplayed(), "Nav bar profile menu not displayed if profile icon is clicked!");
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(500);
+
         homePage.getNavBarProfileMenuProfile().click();
 
         Assertions.assertTrue(driver.getCurrentUrl().matches(expectedUrl), "Not navigated to user profile!");

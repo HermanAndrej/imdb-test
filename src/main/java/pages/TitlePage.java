@@ -88,11 +88,7 @@ public class TitlePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(rateNineStars));
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", rateNineStars);
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(500);
         sumbitRatingButton.click();
     }
 
@@ -104,11 +100,7 @@ public class TitlePage extends BasePage {
     public void getCastSectionActor() {
         scrollToElement(castSectionActor);
 
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(1000);
 
         castSectionActor.click();
     }
@@ -116,11 +108,7 @@ public class TitlePage extends BasePage {
     public void addTitleToWatchList() {
         scrollToElement(addTitleToWatchlist);
 
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        implicitWait(500);
 
         addTitleToWatchlist.click();
     }
