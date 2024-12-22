@@ -30,7 +30,7 @@ public class RateTest extends BaseTest {
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -49,7 +49,7 @@ public class RateTest extends BaseTest {
         titlePage.rateTitle();
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class RateTest extends BaseTest {
         titlePage.removeTitleRating();
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

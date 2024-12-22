@@ -58,6 +58,19 @@ public class SignInPage extends BasePage {
         signInSubmit.click();
     }
 
+    public void signUp(String name, String email, String password) {
+        HomePage homePage = new HomePage(driver);
+
+        homePage.getNavBarSignInButton().click();
+        getCreateNewAccountButton().click();
+        signUpEnterName(name);
+        enterEmail(email);
+        enterPassword(password);
+        reenterPassword(password);
+        getSignUpContinueButton().click();
+
+    }
+
     public void signUpEnterName(String name) {
         signUpNameField.sendKeys(name);
     }

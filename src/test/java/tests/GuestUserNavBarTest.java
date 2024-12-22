@@ -88,8 +88,7 @@ public class GuestUserNavBarTest extends BaseTest {
 
         homePage.getNavBarLogo().click();
 
-        WebDriverWait wait2 = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait2.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
+        wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
         Assertions.assertEquals("https://www.imdb.com/?ref_=nv_home", driver.getCurrentUrl(), "Navigation from find page to home page through imdb logo icon is not correct!");
     }

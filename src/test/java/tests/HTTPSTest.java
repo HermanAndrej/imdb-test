@@ -40,11 +40,4 @@ public class HTTPSTest extends BaseTest {
     public void enforceHTTPSTest() {
         Assertions.assertTrue(checkHsts("https://www.imdb.com/"), "HSTS could not be detected!");
     }
-
-//    @Test
-//    public void enforceHTTPSUrlTest() throws InterruptedException {
-//        driver.get("http://www.imdb.com/");
-//        Thread.sleep(3000);
-//        Assertions.assertEquals("https://www.imdb.com/", driver.getCurrentUrl(), "Not redirected to HTTPS!");
-//    }
 }

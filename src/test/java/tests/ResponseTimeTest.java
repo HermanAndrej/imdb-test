@@ -40,8 +40,6 @@ public class ResponseTimeTest extends BaseTest{
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
-        //int responseCode = connection.getResponseCode();
-
         long endTime = System.currentTimeMillis();
         return endTime - startTime;
     }
