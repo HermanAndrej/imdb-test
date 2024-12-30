@@ -29,8 +29,10 @@ public class SignUpTest extends BaseTest {
     public void signUpTestSuccess() {
         SignInPage signInPage = new SignInPage(driver);
 
-        signInPage.signUp("Toge Inumaki", "realemail@gmail.com", "BonitoFlakes123");
+        signInPage.signUp("Toge Inumaki", "lot.rxbot@gmail.com", "BonitoFlakes123");
 
         implicitWait(1000);
+
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/ap/cvf/request"));
     }
 }
