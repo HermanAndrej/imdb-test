@@ -9,16 +9,28 @@ public class DriverManager {
 
     public static WebDriver getDriver() {
         if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            try {
+                WebDriverManager.chromedriver().setup();
+                driver = new ChromeDriver();
+            } catch (Exception e) {
+                System.err.println("Failed to initialize WebDriver: " + e.getMessage());
+                e.printStackTrace();
+                throw new RuntimeException("WebDriver setup failed", e);
+            }
         }
         return driver;
     }
 
     public static void quitDriver() {
         if (driver != null) {
-            driver.quit();
-            driver = null;
+            try {
+                driver.quit();
+            } catch (Exception e) {
+                System.err.println("Failed to quit WebDriver: " + e.getMessage());
+                e.printStackTrace();
+            } finally {
+                driver = null;
+            }
         }
     }
 }
