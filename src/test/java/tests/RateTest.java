@@ -1,19 +1,14 @@
 package tests;
 
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.FindPage;
-import pages.SignInPage;
 import pages.TitlePage;
 
-import java.io.File;
 import java.time.Duration;
-
-import utils.Config;
 
 public class RateTest extends BaseTest {
 
@@ -31,7 +26,7 @@ public class RateTest extends BaseTest {
 
         implicitWait(2000);
 
-        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/registration/signin"));
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/registration/signin"), "Guest user shouldn't be able to rate!");
     }
 
     @Test
@@ -46,7 +41,7 @@ public class RateTest extends BaseTest {
 
         implicitWait(2000);
 
-        Assertions.assertTrue(titlePage.getTitleUserRating().contains("9\n" + "/10"));
+        Assertions.assertTrue(titlePage.getTitleUserRating().contains("9\n" + "/10"), "Can't rate the title!");
     }
 
     @Test
@@ -61,6 +56,6 @@ public class RateTest extends BaseTest {
 
         implicitWait(2000);
 
-        Assertions.assertThrows(NoSuchElementException.class, () -> {titlePage.getTitleUserRatingElement().isDisplayed();});
+        Assertions.assertThrows(NoSuchElementException.class, () -> {titlePage.getTitleUserRatingElement().isDisplayed();}, "Can't remove the rating!");
     }
 }

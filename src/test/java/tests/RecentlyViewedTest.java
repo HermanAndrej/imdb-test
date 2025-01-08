@@ -30,7 +30,7 @@ public class RecentlyViewedTest extends BaseTest {
 
         implicitWait(2000);
 
-        Assertions.assertTrue(homePage.getRecentlyViewedSection().getText().contains("Breaking Bad"));
+        Assertions.assertTrue(homePage.getRecentlyViewedSection().getText().contains("Breaking Bad"), "Recently viewed functionality doesn't work!");
     }
 
     @Test
@@ -61,6 +61,6 @@ public class RecentlyViewedTest extends BaseTest {
 
         implicitWait(2000);
 
-        Assertions.assertThrows(NoSuchElementException.class, () -> {homePage.getRecentlyViewedSection().isDisplayed();});
+        Assertions.assertThrows(NoSuchElementException.class, () -> {homePage.getRecentlyViewedSection().isDisplayed();}, "Couldn't clear the recently viewed list!");
     }
 }

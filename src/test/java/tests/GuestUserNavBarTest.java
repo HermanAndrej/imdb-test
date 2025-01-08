@@ -39,7 +39,7 @@ public class GuestUserNavBarTest extends BaseTest {
 
         homePage.getNavBarWatchlistButton().click();
 
-        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Invalid");
+        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Watchlist icon doesn't work!");
     }
 
     @Test
@@ -49,7 +49,7 @@ public class GuestUserNavBarTest extends BaseTest {
 
         homePage.getNavBarSignInButton().click();
 
-        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Invalid");
+        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Sign in icon doesn't work!");
     }
 
     @Test

@@ -9,10 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.FindPage;
 import pages.HomePage;
-import pages.SignInPage;
-import utils.Config;
 
-import java.io.File;
 import java.time.Duration;
 
 public class RegisteredUserNavBarTest extends BaseTest {

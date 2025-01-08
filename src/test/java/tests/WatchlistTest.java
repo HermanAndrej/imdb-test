@@ -38,7 +38,7 @@ public class WatchlistTest extends BaseTest{
 
         implicitWait(2000);
 
-        Assertions.assertTrue(watchlistPage.getWatchlistTitleText().contains("Django Unchained"));
+        Assertions.assertTrue(watchlistPage.getWatchlistTitleText().contains("Django Unchained"), "Couldn't add title to the watchlist!");
     }
 
     @Test
@@ -62,7 +62,7 @@ public class WatchlistTest extends BaseTest{
 
         wait.until(ExpectedConditions.elementToBeClickable(watchlistPage.getWatchlistBody()));
 
-        Assertions.assertTrue(watchlistPage.getWatchlistBodyText().contains("This list is empty."));
+        Assertions.assertTrue(watchlistPage.getWatchlistBodyText().contains("This list is empty."), "Couldn't remove title from a watchlist!");
     }
 
     @Test
@@ -79,7 +79,7 @@ public class WatchlistTest extends BaseTest{
 
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
-        Assertions.assertTrue(driver.getCurrentUrl().contains("ref_=cr_lst_crte"));
+        Assertions.assertTrue(driver.getCurrentUrl().contains("ref_=cr_lst_crte"), "New list not created!");
     }
 
 }

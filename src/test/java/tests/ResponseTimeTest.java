@@ -32,7 +32,6 @@ public class ResponseTimeTest extends BaseTest{
         }
     }
 
-
     public long getResponseTime(String urlString) throws IOException {
         long startTime = System.currentTimeMillis();
 

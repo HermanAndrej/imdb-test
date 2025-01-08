@@ -2,7 +2,6 @@ package tests;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import pages.HomePage;
 import pages.SignInPage;
 
 public class SignUpTest extends BaseTest {
@@ -33,6 +32,6 @@ public class SignUpTest extends BaseTest {
 
         implicitWait(1000);
 
-        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/ap/cvf/request"));
+        Assertions.assertTrue(driver.getCurrentUrl().contains("https://www.imdb.com/ap/cvf/request"), "Sign up unsuccessful!");
     }
 }
