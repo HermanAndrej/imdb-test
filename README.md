@@ -1,5 +1,4 @@
-# imdb-test
-IMDb Automated Testing Project
+# IMDb Automated Testing Project
 Overview
 This project showcases a robust implementation of automated testing for the IMDb website, adhering to best practices in software testing and design. Built with Java, Selenium WebDriver, and JUnit, the project effectively validates IMDb's core functionalities, UI elements, and performance metrics while ensuring code maintainability and reusability.
 
