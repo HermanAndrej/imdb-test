@@ -35,7 +35,7 @@ public class HTTPSTest extends BaseTest {
     }
 
     @Test
-    public void enforceHTTPSTest() {
+    public void checkHTTPSTest() {
         Assertions.assertTrue(checkHsts("https://www.imdb.com/"), "HSTS could not be detected!");
     }
 }

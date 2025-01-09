@@ -32,7 +32,7 @@ public class SearchTest extends BaseTest {
         HomePage homePage = new HomePage(driver);
         FindPage findPage = new FindPage(driver);
 
-        homePage.searchForText("some nonexisting movie");
+        homePage.searchForText("some nonexistent movie");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement firstResult = wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));

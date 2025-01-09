@@ -30,7 +30,7 @@ public class SignInTest extends BaseTest {
     public void signInTestFailure() {
         SignInPage signInPage = new SignInPage(driver);
 
-        signInPage.signIn("wrongemail@gmail.com", "wrong password");
+        signInPage.signIn("wrongemail@gmail.com", "wrongpassword");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));

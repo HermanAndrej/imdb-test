@@ -59,5 +59,4 @@ public class TitlePageTest extends BaseTest {
 
         Assertions.assertEquals("https://www.imdb.com/name/nm0517820/?ref_=tt_cst_t_1", driver.getCurrentUrl(), "Not redirected to actor page!");
     }
-
 }

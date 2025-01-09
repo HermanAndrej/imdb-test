@@ -26,5 +26,4 @@ public class ResponsivenessTest extends BaseTest {
         Assertions.assertTrue(homePage.getNavBarMenu().isDisplayed(), "Menu is not visible on tablet view");
         Assertions.assertTrue(homePage.getNavBarSignInButton().isDisplayed(), "Sign in button is not visible on tablet view");
     }
-
 }

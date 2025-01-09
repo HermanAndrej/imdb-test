@@ -81,5 +81,4 @@ public class WatchlistTest extends BaseTest{
 
         Assertions.assertTrue(driver.getCurrentUrl().contains("ref_=cr_lst_crte"), "New list not created!");
     }
-
 }

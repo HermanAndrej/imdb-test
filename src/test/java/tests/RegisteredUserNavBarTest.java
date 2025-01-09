@@ -45,7 +45,7 @@ public class RegisteredUserNavBarTest extends BaseTest {
 
         homePage.getNavBarWatchlistButton().click();
 
-        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "Invalid");
+        Assertions.assertTrue(driver.getCurrentUrl().matches(expectedURL), "User not redirected to the watchlist page!");
     }
 
     @Test
