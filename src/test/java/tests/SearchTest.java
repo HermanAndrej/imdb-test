@@ -32,13 +32,13 @@ public class SearchTest extends BaseTest {
         HomePage homePage = new HomePage(driver);
         FindPage findPage = new FindPage(driver);
 
-        homePage.searchForText("some nonexistent movie");
+        homePage.searchForText("asdsfdsfsdfewfewfsdfewfewfas");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement firstResult = wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
 
         Assertions.assertTrue(findPage.getTitleSection().isDisplayed());
-        Assertions.assertTrue(firstResult.getText().contains("No results found for \"some nonexisting movie\""), "Test for invalid title search failed.");
+        Assertions.assertTrue(firstResult.getText().contains("No results found for \"asdsfdsfsdfewfewfsdfewfewfas\""), "Test for invalid title search failed.");
     }
 
     @Test

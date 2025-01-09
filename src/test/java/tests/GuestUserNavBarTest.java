@@ -84,7 +84,8 @@ public class GuestUserNavBarTest extends BaseTest {
         homePage.searchForText("parasite");
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
+
+        implicitWait(2000);
 
         homePage.getNavBarLogo().click();
 

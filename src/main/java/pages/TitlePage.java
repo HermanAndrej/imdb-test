@@ -84,8 +84,7 @@ public class TitlePage extends BasePage {
 
     public void rateTitle() {
         rateButton.click();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(rateNineStars));
+        implicitWait(2000);
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].click();", rateNineStars);
         implicitWait(500);

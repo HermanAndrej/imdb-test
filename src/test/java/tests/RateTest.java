@@ -37,6 +37,8 @@ public class RateTest extends BaseTest {
 
         findPage.FindTitle("Reservoir Dogs");
 
+        implicitWait(2000);
+
         titlePage.rateTitle();
 
         implicitWait(2000);
@@ -51,6 +53,8 @@ public class RateTest extends BaseTest {
         TitlePage titlePage = new TitlePage(driver);
 
         findPage.FindTitle("Reservoir Dogs");
+
+        implicitWait(2000);
 
         titlePage.removeTitleRating();
 

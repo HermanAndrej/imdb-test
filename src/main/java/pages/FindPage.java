@@ -43,6 +43,7 @@ public class FindPage extends BasePage {
     public void FindTitle(String titleName) {
         HomePage homePage = new HomePage(driver);
         homePage.searchForText(titleName);
+        implicitWait(2000);
         titleSectionFirstMatch.click();
     }
 }

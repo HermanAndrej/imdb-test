@@ -94,15 +94,14 @@ public class RegisteredUserNavBarTest extends BaseTest {
     @Test
     public void findPageToHomePageTest() {
         HomePage homePage = new HomePage(driver);
-        FindPage findPage = new FindPage(driver);
 
         homePage.searchForText("parasite");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.visibilityOf(findPage.getTitleSection()));
+        implicitWait(2000);
 
         homePage.getNavBarLogo().click();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until((driver) -> ((JavascriptExecutor) driver).executeScript("return document.readyState").equals("complete"));
 
         Assertions.assertEquals("https://www.imdb.com/?ref_=nv_home", driver.getCurrentUrl(), "Navigation from find page to home page through imdb logo icon is not correct!");
